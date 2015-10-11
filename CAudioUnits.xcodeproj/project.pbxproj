@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362FF9891BC9EBAB001EA833 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 362FF9871BC9EBAB001EA833 /* README.md */; };
+		362FF98A1BC9EBAB001EA833 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 362FF9881BC9EBAB001EA833 /* License.txt */; };
 		3651C7521BB1E8AE00FD08F1 /* CAudioUnits.h in Headers */ = {isa = PBXBuildFile; fileRef = 3651C7511BB1E8AE00FD08F1 /* CAudioUnits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3651C7581BB1E8AE00FD08F1 /* CAudioUnits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3651C74C1BB1E8AE00FD08F1 /* CAudioUnits.framework */; };
 		3651C7721BB1E8C300FD08F1 /* CAudioEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3651C7691BB1E8C300FD08F1 /* CAudioEffect.h */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		362FF9871BC9EBAB001EA833 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		362FF9881BC9EBAB001EA833 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		3651C74C1BB1E8AE00FD08F1 /* CAudioUnits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CAudioUnits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3651C7501BB1E8AE00FD08F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3651C7511BB1E8AE00FD08F1 /* CAudioUnits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAudioUnits.h; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		3651C7421BB1E8AE00FD08F1 = {
 			isa = PBXGroup;
 			children = (
+				362FF9871BC9EBAB001EA833 /* README.md */,
+				362FF9881BC9EBAB001EA833 /* License.txt */,
 				3651C74E1BB1E8AE00FD08F1 /* CAudioUnits */,
 				362FF9861BC9DE84001EA833 /* Apple Frameworks */,
 				3651C75B1BB1E8AE00FD08F1 /* CAudioUnitsTests */,
@@ -426,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362FF98A1BC9EBAB001EA833 /* License.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +462,7 @@
 				3651C7A71BB1E8C900FD08F1 /* CAUErrors.m in Sources */,
 				3651C7AB1BB1E8C900FD08F1 /* CAUGraph+NSCoding.m in Sources */,
 				3651C7A91BB1E8C900FD08F1 /* CAudioNonModalAUGraph.c in Sources */,
+				362FF9891BC9EBAB001EA833 /* README.md in Sources */,
 				3651C7A11BB1E8C900FD08F1 /* AudioComponentDescription Names.m in Sources */,
 				3651C7A51BB1E8C900FD08F1 /* CAudioOutput.m in Sources */,
 			);
