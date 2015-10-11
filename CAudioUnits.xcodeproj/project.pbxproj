@@ -126,12 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		362FF9861BC9DE84001EA833 /* Apple Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3651C7B01BB1E95900FD08F1 /* AudioToolbox.framework */,
+				3651C7AE1BB1E8F200FD08F1 /* AudioUnit.framework */,
+			);
+			name = "Apple Frameworks";
+			sourceTree = "<group>";
+		};
 		3651C7421BB1E8AE00FD08F1 = {
 			isa = PBXGroup;
 			children = (
 				3651C74E1BB1E8AE00FD08F1 /* CAudioUnits */,
-				3651C7B01BB1E95900FD08F1 /* AudioToolbox.framework */,
-				3651C7AE1BB1E8F200FD08F1 /* AudioUnit.framework */,
+				362FF9861BC9DE84001EA833 /* Apple Frameworks */,
 				3651C75B1BB1E8AE00FD08F1 /* CAudioUnitsTests */,
 				3651C74D1BB1E8AE00FD08F1 /* Products */,
 			);
@@ -641,6 +649,7 @@
 				3651C7641BB1E8AE00FD08F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3651C7651BB1E8AE00FD08F1 /* Build configuration list for PBXNativeTarget "CAudioUnitsTests" */ = {
 			isa = XCConfigurationList;
@@ -649,6 +658,7 @@
 				3651C7671BB1E8AE00FD08F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
