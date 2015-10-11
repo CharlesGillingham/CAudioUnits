@@ -4,27 +4,27 @@ This is a simple and robust interface for managing AudioUnits, with UI, NSEncodi
 ##Usage
 
 ####Basic construction: CAudioUnit.h
-Audio units are ready to go as soon as they are initialized. They are constructed using "subtype name".  All you have to do is connect them, e.g.
+Audio units are ready to go as soon as they are initialized. They are constructed using "subtype name".  All you have to do is connect them, e.g.<pre>
         auSynthesizer = [[CAudioInstrument alloc] initWithSubtype:@"Apple: DLSMusicDevice"];
         auEffect      = [[CAudioEffect alloc] initWithSubtype:@"Apple: AUPitch"];
-        auOutput      = [[CAudioOutput alloc] initWithSubtype:@"Apple: DefaultOutputUnit"];
+        auOutput      = [[CAudioOutput alloc] initWithSubtype:@"Apple: DefaultOutputUnit"];</pre>
         
-To get a list of available subtypes (to load into a menu, for example). (You can also use this check the correct spelling of the string.)
-        NSArray * subTypes = [CAudioOutput subtypeNames];
+To get a list of available subtypes (to load into a menu, for example). (You can also use this check the correct spelling of the string.)<pre>
+        NSArray * subTypes = [CAudioOutput subtypeNames];</pre>
 
-To create a signal processing graph, just connect them using the outputUnit property:
+To create a signal processing graph, just connect them using the outputUnit property:<pre>
       auSynthesizer.outputUnit = auEffect;
-      auEffect.outputUnit = auOutput;
+      auEffect.outputUnit = auOutput;</pre>
 
 The graph is now rendering audio. Sending MIDI to the synthesizer will produce output at the speakers. (Every graph must contain an output unit to send audio to the speakers.)
 
 ####User interface: CAudioUnit+UI.h.
-Almost all audio units have a built in user interface. To load this into a window, use the viewController property.
-      synthViewC = auSynthesizer.viewController;
-Add the view to a window:
-      [window setContentViewController:synthViewC]
-Add the view to an NSBox
-      [nsBox setContentView:synthViewC.view];
+Almost all audio units have a built in user interface. To load this into a window, use the viewController property.<pre>
+      synthViewC = auSynthesizer.viewController;</pre>
+Add the view to a window:<pre>
+      [window setContentViewController:synthViewC]</pre>
+Add the view to an NSBox:<pre>
+      [nsBox setContentView:synthViewC.view];</pre>
 You may need to retain a pointer to the view controller to keep ARC from deallocating it. 
     
 
