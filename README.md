@@ -3,7 +3,30 @@ This is a simple and robust interface for managing AudioUnits, with UI, NSEncodi
 
 ##Usage
 
-See examples. (Will be uploaded shortly.)
+####Basic construction: CAudioUnit.h
+Audio units are ready to go as soon as they are initialized. They are constructed using "subtype name".  All you have to do is connect them, e.g.
+        auSynthesizer = [[CAudioInstrument alloc] initWithSubtype:@"Apple: DLSMusicDevice"];
+        auEffect      = [[CAudioEffect alloc] initWithSubtype:@"Apple: AUPitch"];
+        auOutput      = [[CAudioOutput alloc] initWithSubtype:@"Apple: DefaultOutputUnit"];
+        
+To get a list of available subtypes (to load into a menu, for example). (You can also use this check the correct spelling of the string.)
+        NSArray * subTypes = [CAudioOutput subtypeNames];
+
+To create a signal processing graph, just connect them using the outputUnit property:
+      auSynthesizer.outputUnit = auEffect;
+      auEffect.outputUnit = auOutput;
+
+The graph is now rendering audio. Sending MIDI to the synthesizer will produce output at the speakers. (Every graph must contain an output unit to send audio to the speakers.)
+
+####User interface: CAudioUnit+UI.h.
+Almost all audio units have a built in user interface. To load this into a window, use the viewController property.
+      synthViewC = auSynthesizer.viewController;
+Add the view to a window:
+      [window setContentViewController:synthViewC]
+Add the view to an NSBox
+      [nsBox setContentView:synthViewC.view];
+You may need to retain a pointer to the view controller to keep ARC from deallocating it. 
+    
 
 ##Design goals
 
@@ -16,7 +39,7 @@ This interface is designed to allow clients to do simple things quickly, safely 
 An object is "non-modal" if it remains fully functional and operating from the initialization to deallocation. With ARC, this means that if you have a valid pointer to the object then you are pointing to a fully functional object.
 No other initialization or clean up is needed.
 
-A non-modal object does not have an "error mode". If an error occurs, the object at it's relationships remain unchanged. Thus the caller always has a working AudioUnit signal chain, which is still processing audio. If CAUError_currentError != nil, then there has been an error since the last time you checked, but the audio units are still running and valid.
+A non-modal object does not have an "error mode". If an error occurs, the object and its relationships remain unchanged. Thus the caller *always* has a working AudioUnit signal chain, which is still processing audio. If CAUError_currentError != nil, then there has been an error since the last time you checked, but the audio units are still running and valid.
 
 Apple's AUGraph, in particular, is incredibly modal: open/closed; initialized/uninitialized; pending changes/updated; running/not running/can't run. There are many possible error states, and these are difficult to unwind. This interface elimnates these problems. It's dumb-proof.
 
